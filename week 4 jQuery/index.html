@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог фильмов</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Каталог Фильмов</h1>
+            <div class="search-bar">
+              <input type="text" id="searchInput" placeholder="Поиск фильмов...">
+              <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+    </header>
+
+    <main class="container">
+
+        <aside class="sidebar">
+          <h2>Фильтры</h2>
+          <div class="filter-group">
+            <h3>Жанр</h3>
+            <ul id="genreFilter">
+              <li><label><input type="checkbox" value="action"> Боевик</label></li>
+              <li><label><input type="checkbox" value="comedy"> Комедия</label></li>
+              <li><label><input type="checkbox" value="drama"> Драма</label></li>
+              <li><label><input type="checkbox" value="thriller"> Триллер</label></li>
+              <li><label><input type="checkbox" value="sci-fi"> Фантастика</label></li>
+              </ul>
+          </div>
+  
+          <div class="filter-group">
+            <h3>Год выпуска</h3>
+            <input type="number" id="yearFilter" placeholder="Введите год">
+          </div>
+  
+          <!-- Можно добавить другие фильтры: Рейтинг, Страна и т.д. -->
+  
+          <button id="resetFilters">Сбросить фильтры</button>
+        </aside>
+  
+          <section id="movieList" class="movie-list">
+            <!-- Здесь будут отображаться карточки фильмов из js-->
+            <!-- <div class="movie-card"> Пример
+                <img src="" alt="Название фильма">
+                <h3>Название фильма</h3>
+                <p>Год: Год выпуска</p>
+                <button data-movie-id="ID_ФИЛЬМА">Подробнее</button>
+            </div>
+            <div class="movie-card">
+                <img src="" alt="Название фильма">
+                <h3>Название фильма</h3>
+                <p>Год: Год выпуска</p>
+                <button data-movie-id="ID_ФИЛЬМА">Подробнее</button>
+            </div>
+            <div class="movie-card">
+                <img src="" alt="Название фильма">
+                <h3>Название фильма</h3>
+                <p>Год: Год выпуска</p>
+                <button data-movie-id="ID_ФИЛЬМА">Подробнее</button>
+            </div>
+            <div class="movie-card">
+                <img src="" alt="Название фильма">
+                <h3>Название фильма</h3>
+                <p>Год: Год выпуска</p>
+                <button data-movie-id="ID_ФИЛЬМА">Подробнее</button>
+            </div> -->
+          </section>
+  
+    </main>
+
+        <footer>
+            <div class="container">
+              <p>&copy; 2024 Каталог Фильмов. Все права защищены.</p>
+            </div>
+          </footer>
+        
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <h2 id="modalTitle"></h2>
+              <p id="modalDescription"></p>
+              <img id="modalPoster" src="" alt="Постер фильма">
+              <button id="addToFavoritesButton">Добавить в Избранное</button>
+            </div>
+          </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

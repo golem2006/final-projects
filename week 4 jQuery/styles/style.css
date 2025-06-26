@@ -1,0 +1,282 @@
+/* style.css */
+
+/* Общие стили */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Шапка сайта */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2em;
+  }
+  
+  /* Поисковая строка */
+  .search-bar {
+    display: flex;
+  }
+  
+  .search-bar input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+    width: 250px;
+  }
+  
+  .search-bar button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .search-bar button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Основной контент */
+  main {
+    display: flex;
+    padding: 20px 0;
+  }
+  
+  main .container {
+    display: flex;
+    gap: 20px; /* Отступ между sidebar и movie-list */
+  }
+  
+  /* Боковая панель фильтров */
+  .sidebar {
+    width: 250px;
+    height: fit-content;
+    box-sizing: border-box;
+    margin-right: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-group {
+    margin-bottom: 20px;
+  }
+  
+  .filter-group h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .filter-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .filter-group li {
+    margin-bottom: 5px;
+  }
+  
+  .filter-group input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .filter-group input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #resetFilters {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+  }
+  
+  #resetFilters:hover {
+    background-color: #da190b;
+  }
+  
+  /* Список фильмов */
+  .movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Адаптивный грид */
+    gap: 20px;
+    flex-grow: 1; /* Занимает доступное пространство */
+  }
+  
+  .movie-card {
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .movie-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .movie-card h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .movie-card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #777;
+  }
+  
+  .movie-card button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  
+  .movie-card button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Подвал сайта */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  /* Модальное окно */
+  .modal {
+    display: none; /* Скрываем по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    z-index: 1000; /* Отображаем поверх всего */
+    overflow: auto; /* Включаем прокрутку, если контент не помещается */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Центрируем по вертикали */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ширина модального окна */
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #aaa;
+  }
+  
+  .close-button:hover {
+    color: black;
+  }
+  
+  #modalPoster {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+  }
+  
+  #addToFavoritesButton {
+      background-color: #28a745; /* Зеленый цвет */
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 10px; /* Отступ сверху */
+  }
+  
+  #addToFavoritesButton:hover {
+      background-color: #218838; /* Более темный зеленый при наведении */
+  }
+  
+  /* Адаптивность (Media Queries) */
+  @media (max-width: 768px) {
+    header .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .search-bar {
+      margin-top: 10px;
+    }
+  
+    main {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .movie-list {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  
+    .modal-content {
+      width: 95%;
+      margin: 20% auto;
+    }
+  
+    .search-bar input[type="text"] {
+      width: 100%;
+      border-radius: 5px;
+    }
+  
+    .search-bar button {
+        border-radius: 5px;
+    }
+  }
