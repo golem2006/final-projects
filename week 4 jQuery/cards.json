@@ -4,48 +4,56 @@
             "src": "https://imgholder.ru/150/FAAFA/000000ee.jpg&font=kelson",
             "name": "Фильм 1",
             "date": "2000",
+            "genre": ["action", "Боевик"],
             "id": "000001"
         },
         {
             "src": "https://imgholder.ru/150/FAAFA/000000ee.jpg&font=kelson",
             "name": "Фильм 2",
             "date": "2024",
+            "genre": ["comedy", "Комедия"],
             "id": "000002"
         },
         {
             "src": "https://imgholder.ru/150/FAAFA/000000ee.jpg&font=kelson",
             "name": "Фильм 3",
             "date": "2015",
+            "genre": ["drama", "Драма"],
             "id": "000003"
         },
         {
             "src": "https://imgholder.ru/150/FAAFA/000000ee.jpg&font=kelson",
             "name": "Фильм 4",
             "date": "1998",
+            "genre": ["thriller", "Триллер"],
             "id": "000004"
         },
         {
             "src": "https://imgholder.ru/150/FAAFA/000000ee.jpg&font=kelson",
             "name": "Фильм 5",
             "date": "2025",
+            "genre": ["sci-fi", "Фантастика"],
             "id": "000005"
         },
         {
             "src": "https://imgholder.ru/150/FAAFA/000000ee.jpg&font=kelson",
             "name": "Фильм 6",
             "date": "2025",
+            "genre": ["sci-fi", "Фантастика"],
             "id": "000006"
         },
         {
             "src": "https://imgholder.ru/150/FAAFA/000000ee.jpg&font=kelson",
             "name": "Фильм 7",
             "date": "2025",
+            "genre": ["sci-fi", "Фантастика"],
             "id": "000007"
         },
         {
             "src": "https://imgholder.ru/150/FAAFA/000000ee.jpg&font=kelson",
             "name": "Фильм 8",
             "date": "2025",
+            "genre": ["sci-fi", "Фантастика"],
             "id": "000008"
         }
     ]
