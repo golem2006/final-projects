@@ -241,6 +241,11 @@ body {
   #addToFavoritesButton:hover {
       background-color: #218838; /* Более темный зеленый при наведении */
   }
+
+  .minorAlert {
+    color: #777;
+    text-align: center;
+  }
   
   /* Адаптивность (Media Queries) */
   @media (max-width: 768px) {

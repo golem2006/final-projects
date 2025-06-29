@@ -1,10 +1,12 @@
 $(document).ready(function() {
     const $movieList = $('#movieList'); // Используем jQuery для выбора элемента
+    const $filter = $('#filter');
     var movieData = [];
 
     function loadCards() { // Получение карточек фильмов с сервера (гитхаб репозиторий)
-        $.getJSON("https://raw.githubusercontent.com/golem2006/final-project/refs/heads/main/week%204%20jQuery/cards.json", function(data) {
+        $.getJSON("https://raw.githubusercontent.com/golem2006/final-projects/refs/heads/main/week%204%20jQuery/cards.json", function(data) {
             movieData = data.cards;
+            
             renderCards(data.cards); // Вызов функции отрисовывания карточек
 
         }).fail(() => console.log("Ошибка загрузки!"));
@@ -12,6 +14,9 @@ $(document).ready(function() {
 
     function renderCards(cards) {
         $movieList.empty();
+        if (cards.length == 0) {
+          $movieList.append(`<p class="minorAlert">Фильмы не найдены</p>`);
+        }
         cards.forEach(card => {
             $movieList.append(`
             <div class="movie-card">
@@ -39,10 +44,11 @@ $(document).ready(function() {
     
       // Находим фильм по ID
       const movie = movies.find(movie => movie.id === movieId);
+      console.log(movie);
     
       if (movie) {
         modalTitle.text(movie.name); // Используем .text() для установки текста
-        modalDescription.text(`Год выпуска: ${movie.date}`); // Используем .text() для установки текста
+        modalDescription.text(`Год выпуска: ${movie.date} Жанр: ${movie.genre[1]}`); // Используем .text() для установки текста
         modalPoster.attr('src', movie.src); // Используем .attr() для установки атрибута src
         
         modal.show(); // Показываем модальное окно (jQuery)
@@ -63,5 +69,83 @@ $(document).ready(function() {
       });
     }
 
+    // Фильтры
+    // var filterMovieData = [];
+    // $filter.on('change', 'input', function() { // При изменении инпута чекбоксов
+    //   filterMovieData = [];
+  
+    //   if ($('#genreFilter input[type="checkbox"]:checked')) {
+    //     $('#genreFilter input[type="checkbox"]:checked').each(function () { // Для каждого выбраного чекбокса
+    //       var val = $(this).val(); // Значение чекбокса
+  
+    //       movieData.forEach(card => { // Поиск подходящих фильмов
+    //           if (card.genre && card.genre.length > 0 && val == card.genre[0]) {
+    //               filterMovieData.push(card);
+    //           }
+    //       });
+    //     });
+    //   }
+
+    //   if ($('#yearFilter')[0].value !== '') {
+    //     console.log(1);
+    //     var val = $(this).val(); // Значение инпута (год)
+
+    //     movieData.forEach(card => { // Поиск подходящих фильмов
+    //       if (card.date &&  val == card.date) {
+    //           filterMovieData.push(card);
+    //       }
+    //     });
+    //   }
+      
+  
+    //   renderCards(filterMovieData); // Рендер отфильтрованных карточек
+    // });
+
+    // Фильтры
+    var filterMovieData = [];
+
+    $filter.on('change', 'input', function() {
+        filterMovieData = []; // Начинаем с чистого листа
+    
+        // Получаем выбранные жанры
+        var selectedGenres = $('#genreFilter input[type="checkbox"]:checked').map(function() {
+            return $(this).val();
+        }).get();
+      
+        // Получаем введенный год
+        var enteredYear = $('#yearFilter').val();
+      
+        // Фильтруем movieData
+        movieData.forEach(card => {
+            let includeCard = true; // Предполагаем, что фильм подходит
+        
+            // Фильтруем по жанрам (если выбраны)
+            if (selectedGenres.length > 0) {
+                if (!card.genre || card.genre.length === 0 || !selectedGenres.includes(card.genre[0])) {
+                    includeCard = false; // Не подходит, если жанр не соответствует
+                }
+            }
+          
+            // Фильтруем по году (если введен)
+            if (enteredYear !== '' && card.date != enteredYear) {
+                includeCard = false; // Не подходит, если год не соответствует
+            }
+          
+            // Добавляем фильм, если он прошел все фильтры
+            if (includeCard) {
+                filterMovieData.push(card);
+            }
+        });
+      
+        renderCards(filterMovieData); // Рендер отфильтрованных карточек
+    });
+
+    $('#resetFilters').on('click', function() {
+      renderCards(movieData); // Рендер с начальными значениями
+      $('#genreFilter input[type="checkbox"]').prop('checked', false); // Сброс чекбоксов
+      $('#yearFilter').val(''); // Сброс инпута Год выпуска
+    });
+
     loadCards();
+    
 });
