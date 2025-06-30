@@ -7,10 +7,6 @@ html, body {
     margin: 0 15vw;
 }
 
-.container {
-    margin-bottom: 4vw;
-}
-
 form {
     border: 2px dotted black;
     padding: 20px;
@@ -39,3 +35,180 @@ form > * {
 #dropzone.hovering {
     background-color: #eee;
 }
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Новые стили для размещения блоков в линию */
+  .form-section {
+      display: flex;
+      justify-content: space-between; /* Размещает блоки с равными промежутками между ними */
+      align-items: flex-start; /* Выравнивает элементы по верхней границе */
+      margin-bottom: 20px;
+  }
+  .form-section .container:first-child {
+    margin-right: 20px;
+  }
+  
+  .form-section .container {
+      width: 48%; /* Примерное распределение ширины (около 50% для каждого блока) */
+      text-align: left; /*  Выравниваем текст по левому краю внутри блоков  */
+  }
+  
+  #draggable input[type="text"],
+  #draggable textarea,
+  #draggable input[type="submit"],
+  #draggable input[type="checkbox"] {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Чтобы padding не увеличивал ширину элемента */
+    cursor: grab; /* Указывает на возможность перетаскивания */
+  }
+  
+  #draggable input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #draggable input[type="submit"]:hover {
+    background-color: #367c39;
+  }
+  
+  #dropzone {
+    min-height: 200px;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  #dropzone input[type="text"],
+  #dropzone textarea,
+  #dropzone input[type="submit"],
+  #dropzone input[type="checkbox"] {
+    display: block;
+    margin: 10px 0; /* Изменили auto на 0 чтобы не было центрирования элементов */
+    padding: 10px;
+    width: 100%; /* Растягиваем на всю ширину */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  #dropzone input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #dropzone input[type="submit"]:hover {
+    background-color: #367c39;
+  }
+  
+  #result {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    white-space: pre-wrap; /* Для переноса строк в <pre> */
+    word-break: break-all; /* Для переноса длинных слов */
+    text-align: left;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Стили для элементов в зоне перетаскивания */
+  #dropzone > * {
+      margin: 5px 0; /* Добавляем небольшой отступ между элементами */
+  }
+  
+  /* Стили при перетаскивании над зоной */
+  #dropzone.dragover {
+    background-color: #e0e0e0;
+    border-color: #999;
+  }
+  
+  /*  Media queries для адаптивности */
+  @media (max-width: 768px) {
+    .container {
+      width: 95%;
+      padding: 10px;
+    }
+  
+    #draggable input[type="text"],
+    #draggable textarea,
+    #draggable input[type="submit"],
+    #draggable input[type="checkbox"] {
+      width: 90%;
+    }
+  
+    #dropzone input[type="text"],
+    #dropzone textarea,
+    #dropzone input[type="submit"],
+    #dropzone input[type="checkbox"] {
+      width: 100%;
+    }
+  
+    button {
+      padding: 8px 16px;
+      font-size: 0.9em;
+    }
+  
+    /*  Убираем flex для маленьких экранов, чтобы блоки были друг под другом */
+    .form-section {
+      flex-direction: column;
+    }
+  
+    .form-section .container {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+  }
